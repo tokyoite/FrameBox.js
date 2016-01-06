@@ -1,0 +1,103 @@
+/*!
+* Framify.css 1.0 by Octavio Gomez Jr.
+* Copyright 2015 TekAgeSolutions.com.
+*/
+
+.theShadow{
+-webkit-box-shadow: 35px 23px 0px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 35px 23px 0px 0px rgba(0,0,0,0.75);
+box-shadow: 35px 23px 0px 0px rgba(0,0,0,0.75);
+border:2px solid;
+border-color:lightblue;
+	float:left;
+	-webkit-transition: margin 0.5s ease-out;
+    -moz-transition: margin 0.5s ease-out;
+    -o-transition: margin 0.5s ease-out;
+}
+
+.theShadow:hover {
+	cursor:pointer;
+    margin-top: 5px;
+}
+
+.innerShadow{
+box-shadow: inset -1px -1px 39px -4px #ABABAB,5px 5px 5px 1px #DDDDDD;
+-webkit-box-shadow: inset -1px -1px 39px -4px #ABABAB,5px 5px 5px 1px #DDDDDD;
+-moz-box-shadow: inset -1px -1px 39px -4px #ABABAB,5px 5px 5px 1px #DDDDDD;
+-o-box-shadow: inset -1px -1px 39px -4px #ABABAB,5px 5px 5px 1px #DDDDDD;
+}
+
+.rotate90 {
+    -moz-transform: rotate(-90.0deg); 
+    -ms-transform: rotate(-90.0deg); 
+    -o-transform: rotate(-90.0deg);  
+    -webkit-transform: rotate(-90.0deg);  
+    transform: rotate(-90.0deg);  
+}
+
+.rotate180{
+         -moz-transform: rotate(-180.0deg);  
+      -ms-transform: rotate(-180.0deg);  
+       -o-transform: rotate(-180.0deg);  
+  -webkit-transform: rotate(-180.0deg); 
+          transform: rotate(-180.0deg);  
+}
+
+.rotate270{
+         -moz-transform: rotate(-270.0deg); 
+      -ms-transform: rotate(-270.0deg);  
+       -o-transform: rotate(-270.0deg);  
+  -webkit-transform: rotate(-270.0deg);  
+          transform: rotate(-270.0deg);  
+}
+
+.frameSelection {
+cursor:pointer;
+padding:10px;
+}
+
+.frameSelection:hover{
+        -moz-transform: rotate(-10.0deg); 
+    -ms-transform: rotate(-10.0deg); 
+    -o-transform: rotate(-10.0deg);  
+    -webkit-transform: rotate(-10.0deg);  
+    transform: rotate(-10.0deg);  
+}
+
+.frameSelection:active{
+            -moz-transform: rotate(-10.0deg); 
+    -ms-transform: rotate(-0.0deg); 
+    -o-transform: rotate(-0.0deg);  
+    -webkit-transform: rotate(-0.0deg);  
+    transform: rotate(-0.0deg);  
+}
+
+.framePart{
+    display:none;
+}
+
+.bottom,.top,.left,.right{
+    position:absolute;z-index:+1;
+}
+
+.topRight,.topLeft,.bottomLeft,.bottomRight{
+    position:absolute;z-index:+2;
+}
+
+.disabledSelection{
+    opacity:.6;
+    cursor:crosshair;
+}
+
+.k_shadow{
+border:1px solid;
+max-height:350px;
+overflow-y:scroll;
+overflow-x:visible
+}
+
+#outerBox{
+    margin:auto;
+}
+
+
