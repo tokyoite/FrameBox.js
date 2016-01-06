@@ -81,7 +81,7 @@
                 &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"&gt;
                 &lt;!-- Optional theme --&gt;
                 &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"&gt;
-        <b style="color:red;">&lt;link href="../App/FrameBox/FrameBox.min.css" rel="stylesheet" /&gt;</b>
+        <b style="color:red;">&lt;link href="https://raw.githubusercontent.com/tokyoite/FrameBox.js/master/FrameBox.css" rel="stylesheet" /&gt;</b>
             &lt;/head&gt;
             &lt;body&gt;
                 &lt;div class="container"&gt;
@@ -107,7 +107,7 @@
                 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"&gt;&lt;/script&gt;
                 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"&gt;&lt;/script&gt;
                 &lt;!--FrameBox.js Angular Module--&gt;
-                &lt;script src="../App/FrameBox/FrameBox.js"&gt;&lt;/script&gt;
+                &lt;script src="https://raw.githubusercontent.com/tokyoite/FrameBox.js/master/FrameBox.js"&gt;&lt;/script&gt;
                 &lt;script&gt;
                     //Create App and add FrameBox to module array
                     var app = angular.module('appTest', ['ngRoute', 'FrameBox']);
