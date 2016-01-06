@@ -13,7 +13,7 @@
         <div class="col-sm-12">
             <span><b>Add angular core js files and FrameBox.js at end of body tag </b></span>  <pre><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"&gt;&lt;/script&gt;
-&lt;script src="../App/FrameBox/FrameBox.js"&gt;&lt;/script&gt; </code></pre>
+&lt;script src="https://raw.githubusercontent.com/tokyoite/FrameBox.js/master/FrameBox.js"&gt;&lt;/script&gt; </code></pre>
         </div>
 
         <div class="col-sm-12">
