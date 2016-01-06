@@ -2,7 +2,7 @@
 <hr/>
 <div class="row">
 <div class="container ng-scope">
-    <h2>Install <a href="FrameBox.zip" class="btn btn-primary btn-lg" style='right:25px;'>Download Zip</a></h2>
+    <h2>Install:&nbsp; <a href="FrameBox.zip" class="btn btn-primary btn-lg" style='right:25px;'>Download Zip</a></h2>
     <hr>
 
     <div class="well row">
