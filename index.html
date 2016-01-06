@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="appTest" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>FrameBox.js Demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link href="https://raw.githubusercontent.com/tokyoite/FrameBox.js/master/FrameBox.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>FrameBox.js Usage</h1>
+        <hr />
+        <div class="row">
+            <div style="border-top-left-radius:15px;border-bottom-left-radius:15px;" class="well col-lg-4 col-md-3 col-sm-12 col-xs-12">
+                <!--DIRECTIVE FOR GENERATING FRAME SELECTIONS-->
+                <select-it></select-it>
+            </div>
+
+            <div style="border-top-right-radius:15px;border-bottom-right-radius:15px;border-bottom-left-radius:15px" class="well col-lg-8 col-md-9 col-sm-12 col-xs-12">
+                <div class="col-sm-12">
+                    <!--DIRECTIVE FOR DISPLAYING FRAMED IMAGE-->
+                    <frame-it dim="15x30" image="http://wylandflorida.com/Images/RobKaz/26/thumbsXL/thumb_KnightsofRen15x30[1].jpg" piecename="Knights of Ren" framestyle="Package_2567" id="1"></frame-it>
+                </div>
+
+            </div>
+        </div>
+        <div class="bs-docs-section">
+            <h2 id="template" class="page-header">
+                <a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;" class="anchorjs-link " href="#template" aria-label="Anchor link for: template" data-anchorjs-icon=""></a>Basic template
+            </h2>
+            <p class="lead">Start with the basic FrameBox template below. Dependencies are highlighted in <b style="color:red;">RED</b> and directives hightlighted in <b style="color:blue;">BLUE</b></p>
+
+
+            <pre style="overflow-x:scroll;overflow:hidden;">
+            <code data-lang="html" style="">
+    &lt;!DOCTYPE html&gt;
+        &lt;html ng-app=&quot;appTest&quot; lang=&quot;en&quot;&gt;
+            &lt;head&gt;
+                &lt;title&gt;FrameBox.js Usage&lt;/title&gt;
+                &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css&quot; integrity=&quot;sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7&quot; crossorigin=&quot;anonymous&quot;&gt;
+                &lt;!-- Optional theme --&gt;
+                &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css&quot; integrity=&quot;sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r&quot; crossorigin=&quot;anonymous&quot;&gt;
+            <b style="color:red;">&lt;link href=&quot;../App/FrameBox/FrameBox.css&quot; rel=&quot;stylesheet&quot; /&gt;</b>
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div class=&quot;container&quot;&gt;
+                    &lt;h1&gt;FrameBox.js Usage&lt;/h1&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+                        &lt;div style=&quot;border-top-left-radius:15px;border-bottom-left-radius:15px;&quot; class=&quot;well col-lg-4 col-md-3 col-sm-12 col-xs-12&quot;&gt;
+                            &lt;!--DIRECTIVE FOR GENERATING FRAME SELECTIONS--&gt;
+            <b style="color:blue;">&lt;select-it&gt;&lt;/select-it&gt;</b> 
+                        &lt;/div&gt;
+                        &lt;div style=&quot;border-top-right-radius:15px;border-bottom-right-radius:15px;border-bottom-left-radius:15px&quot; class=&quot;well col-lg-8 col-md-9 col-sm-12 col-xs-12&quot;&gt;
+                            &lt;div class=&quot;col-sm-12&quot;&gt;
+                                &lt;!--DIRECTIVE FOR DISPLAYING FRAMED IMAGE--&gt;
+            <b style="color:blue;">&lt;frame-it dim=&quot;15x30&quot; image=&quot;http://wylandflorida.com/Images/RobKaz/26/thumbsXL/thumb_KnightsofRen15x30[1].jpg&quot; piecename=&quot;Knights of Ren&quot; framestyle=&quot;Package_2567&quot; id=&quot;1&quot;&gt;&lt;/frame-it&gt;</b>
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;!-- jQuery (necessary for Bootstrap&#39;s JavaScript plugins) --&gt;
+                &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+                &lt;!-- Latest compiled and minified JavaScript for Twitter Bootstrap --&gt;
+                &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js&quot; integrity=&quot;sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+            <b style="color:red;"> &lt;!--Angular Core Libraries--&gt;
+                &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js&quot;&gt;&lt;/script&gt;
+                &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js&quot;&gt;&lt;/script&gt;
+                &lt;!--FrameBox.js Angular Module--&gt;
+                &lt;script src=&quot;../App/FrameBox/FrameBox.js&quot;&gt;&lt;/script&gt;
+                &lt;script&gt;
+                    //Create App and add FrameBox to module array
+                    var app = angular.module(&#39;appTest&#39;, [&#39;ngRoute&#39;, &#39;FrameBox&#39;]);
+                &lt;/script&gt;</b>
+            &lt;/body&gt;
+        &lt;/html&gt;            </code>
+</pre>
+
+        </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript for Twitter Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!--Angular Core Libraries-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
+    <!--FrameBox.js Angular Module-->
+    <script src="https://raw.githubusercontent.com/tokyoite/FrameBox.js/master/FrameBox.js"></script>
+
+    <script>
+        //Create App and add FrameBox to module array
+        var app = angular.module('appTest', ['ngRoute', 'FrameBox']);
+    </script>
+</body>
+</html>
+
+
