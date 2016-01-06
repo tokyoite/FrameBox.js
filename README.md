@@ -1,2 +1,2 @@
-# Framify
-Image Frame Generator Directive (Built with Angular)
+# FrameBox.js
+Fine Art Framing Directive (Built with Angular)
