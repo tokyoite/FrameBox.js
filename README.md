@@ -7,7 +7,7 @@
 
     <div class="well row">
         <div class="col-sm-12">
-            <span><b>Add FrameBox.min.css in between head tag.</b></span>  <pre><code>&lt;link href="../App/FrameBox/FrameBox.min.css" rel="stylesheet" /&gt; </code></pre>
+            <span><b>Add FrameBox.min.css in between head tag.</b></span>  <pre><code>&lt;link href="https://raw.githubusercontent.com/tokyoite/FrameBox.js/master/FrameBox.css" rel="stylesheet" /&gt; </code></pre>
         </div>
 
         <div class="col-sm-12">
