@@ -75,7 +75,7 @@
         <h2 id="template" class="page-header">
             <a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;" class="anchorjs-link " href="#template" aria-label="Anchor link for: template" data-anchorjs-icon=""></a>Basic template
         </h2>
-        <p class="lead">Start with the basic FrameBox template below. Requirements are highlighted in <b style="color:red;">RED</b> and directives hightlighted in <b style="color:blue;">BLUE</b></p>
+        <p class="lead">Start with the basic FrameBox template below.</p>
 
 
         <pre style="overflow-x:scroll;overflow:hidden;">
