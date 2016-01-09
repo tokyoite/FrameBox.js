@@ -80,7 +80,7 @@
 
         <pre style="overflow-x:scroll;overflow:hidden;">
         <code data-lang="html" style="">
-                  &lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
 &lt;html <i style="color:red;">ng-app=&quot;appTest&quot;</i> lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;title&gt;FrameBox.js Demo&lt;/title&gt;
