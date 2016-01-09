@@ -63,7 +63,7 @@
   <div class="clearfix"
 ></div>           
  <br/>            
-                     <pre><code>&lt;div frame-it
+                      <pre><code>&lt;div frame-it
                              dim=&quot;25x40&quot;
                              image=&quot;http://wylandflorida.com/Images/RobKaz/26/thumbsXL/thumb_Kaz Lifting the Xwing.jpg&quot;
                              piecename=&quot;Lifting the X-Wing&quot;
