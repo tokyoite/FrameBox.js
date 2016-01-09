@@ -1,7 +1,8 @@
 <br />
 <div class="container">
+<h2> <a style="float:right;" href='http://tokyoite.github.io'>CLICK HERE FOR DEMO</a></h2>
     <hr/>
-    <h2>FrameBox.js Usage <a style="float:right;" href='http://tokyoite.github.io'>CLICK HERE FOR DEMO</a></h2>
+    <h2>FrameBox.js Usage</h2>
     <hr />
 
     <div class="well row">
