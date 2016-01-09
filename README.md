@@ -1,7 +1,7 @@
 <br />
 <div class="container">
-
-
+    <hr/>
+    <h2>FrameBox.js Usage</h2>
     <hr />
 
     <div class="well row">
@@ -63,7 +63,12 @@
   <div class="clearfix"
 ></div>           
  <br/>            
-            <pre><code>&lt;frame-it dim=&quot;15x30&quot; image=&quot;http://wylandflorida.com/Images/RobKaz/26/thumbsXL/thumb_KnightsofRen15x30[1].jpg&quot; piecename=&quot;Knights of Ren&quot; framestyle=&quot;Package_2567&quot; id=&quot;1&quot;&gt;&lt;/frame-it&gt;</code></pre>
+            <pre><code>&lt;div frame-it
+                             dim=&quot;25x40&quot;
+                             image=&quot;http://wylandflorida.com/Images/RobKaz/26/thumbsXL/thumb_Kaz Lifting the Xwing.jpg&quot;
+                             piecename=&quot;Lifting the X-Wing&quot;
+                             framestyle=&quot;Package_2567&quot;&gt;
+                      &lt;/div&gt;</code></pre>
         </div>
     </div>
     <div class="bs-docs-section">
@@ -93,7 +98,7 @@
             &lt;div class=&quot;well col-lg-4 col-md-3 col-sm-12 col-xs-12&quot;&gt;
                 &lt;!--FRAME SELECTION FEATURE--&gt;
                 &lt;p class=&quot;lead text-center&quot;&gt;Select a Frame&lt;/p&gt;
-<i style="color:blue;">&lt;div select-it &gt;&lt;/div&gt;</i>
+                    <i style="color:blue;">&lt;div select-it &gt;&lt;/div&gt;</i>
             &lt;/div&gt;
             &lt;div class=&quot;well col-lg-8 col-md-9 col-sm-12 col-xs-12&quot;&gt;
                 &lt;div class=&quot;col-sm-12&quot;&gt;
@@ -120,7 +125,7 @@
             &lt;div class=&quot;well col-lg-4 col-md-3 col-sm-12 col-xs-12&quot;&gt;
                 &lt;!--FRAME SELECTION FEATURE--&gt;
                 &lt;p class=&quot;lead text-center&quot;&gt;Select a Frame&lt;/p&gt;
-<i style="color:blue;">&lt;div select-it&gt;&lt;/div&gt;</i>
+                    <i style="color:blue;">&lt;div select-it&gt;&lt;/div&gt;</i>
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
