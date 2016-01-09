@@ -1,4 +1,3 @@
-<br />
 <div class="container">
 <h2> <a style="float:right;" href='http://tokyoite.github.io'>CLICK HERE FOR DEMO</a></h2>
     <hr/>
