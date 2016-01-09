@@ -1,86 +1,79 @@
 /*!
-* FrameBox.js by Octavio Gomez Jr.
+* Framify.js by Octavio Gomez Jr.
 * Copyright 2015 TekAgeSolutions.com.
 */
 
 (function () {
     'use strict';
 
+    //FRAME IMAGE URL
     var framing_url = "http://wylandflorida.com/Images/Framing/";
 
+    //BUILD MODULE
     angular
         .module('FrameBox', [])
         .directive('frameIt', frameIt)
         .directive('selectIt', selectIt)
-        .factory('framing', framing);
+        .factory('framing', framing)
+    .run(initializing);
 
-    function frameIt($window, $route, $location,$http) {
-        // Usage:
-        //     <frameIt></frameIt>
-        // Creates:
-        // 
+    // Usage:
+    //    <div frame-it dim="{{size}}" image="{{image}}" piecename="{{name}}" framestyle="{{frameStyle}}"></div>
+    // Creates:
+    //LETS BUILD THE FRAME
+    var incrementFrame = 0;
+    function frameIt($window, $route, $rootScope, $location, $http) {
+
         var directive = {
+            scope: true,
             link: link,
-            restrict: 'E',
-            template: "<div id='frameBox'>" +
-                                                "<img ng-src='" + framing_url + "{{frameStyle}}/bottom.png' ng-style='bottomStyle' class='framePart bottom' />" +
-                                                "<img ng-src='" + framing_url + "{{frameStyle}}/top.png' ng-style='topStyle' class='framePart top rotate180' />" +
-                                                "<img ng-src='" + framing_url + "{{frameStyle}}/left.png' ng-style='leftStyle' class='framePart left rotate180' />" +
-                                               " <img ng-src='" + framing_url + "{{frameStyle}}/right.png' ng-style='rightStyle' class='framePart right' />" +
-                                                "<img ng-src='" + framing_url + "{{frameStyle}}/top-right.png' ng-style='topRightStyle' class='framePart topRight rotate90' />" +
-                                                "<img ng-src='" + framing_url + "{{frameStyle}}/top-left.png' ng-style='topLeftStyle' class='framePart topLeft rotate180' />" +
-                                               " <img ng-src='" + framing_url + "{{frameStyle}}/bottom-left.png' ng-style='bottomLeftStyle' class='framePart bottomLeft rotate270' />" +
-                                               " <img ng-src='" + framing_url + "{{frameStyle}}/bottom-right.png' ng-style='bottomRightStyle' class='framePart bottomRight' />" +
-                                            "<img id='theImage' ng-style='imageStyle' class='innerShadow'  ng-src='{{image}}' alt='{{pieceName}}' title='{{pieceName}}' " +
-                                            "onerror=\"this.src='http://www.experenzia.com/assets/images/planner/no-image-back.png'\" border='0' />" +
-                                         "</div>"
+            restrict: 'A',
+            template: "<span style='display:{{showFramePart ? \"block\":\"none\"}}'>" +
+                          "<img ng-src='" + framing_url + "{{frameStyle}}/bottom.png' ng-style='bottomStyle' class='framePart bottom pulse' />" +
+                          "<img ng-src='" + framing_url + "{{frameStyle}}/top.png' ng-style='topStyle' class='framePart top rotate180 pulse' />" +
+                          "<img ng-src='" + framing_url + "{{frameStyle}}/left.png' ng-style='leftStyle' class='framePart left rotate180 pulse' />" +
+                          "<img ng-src='" + framing_url + "{{frameStyle}}/right.png' ng-style='rightStyle' class='framePart right pulse' />" +
+                          "<img ng-src='" + framing_url + "{{frameStyle}}/top-right.png' ng-style='topRightStyle' class='framePart topRight rotate90 pulse' />" +
+                          "<img ng-src='" + framing_url + "{{frameStyle}}/top-left.png' ng-style='topLeftStyle' class='framePart topLeft rotate180 pulse' />" +
+                          "<img ng-src='" + framing_url + "{{frameStyle}}/bottom-left.png' ng-style='bottomLeftStyle' class='framePart bottomLeft rotate270 pulse' />" +
+                          "<img ng-src='" + framing_url + "{{frameStyle}}/bottom-right.png' ng-style='bottomRightStyle' class='framePart bottomRight pulse' />" +
+                      "</span>" +
+                      "<img ng-style='imageStyle' class='innerShadow'  ng-src='{{image}}' alt='{{pieceName}}' title='{{pieceName}}' " +
+                        "onerror=\"this.src='http://www.experenzia.com/assets/images/planner/no-image-back.png'\" border='0' />"
         };
 
-        return directive;
-
         function link(scope, element, attr) {
+
+            scope.image =  attr.image;
+
+            scope.increm = incrementFrame++;
 
             if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
 
             } else {
-
                 var windowChangeTimer;
-
                 var windowChangeInterval = 1000;
-
-                $(window).resize(function () {
-
+                window.onresize = function (event) {
                     clearTimeout(windowChangeTimer);
-
                     windowChangeTimer = setTimeout(function () {
-
                         $route.reload();
-
                     }, windowChangeInterval);
-
-                });
-
-            }
-
-            attr.$observe('image', function () {
-
-                FRAME_IT();
-
-            });
+                };
+            };
 
             var FRAME_IT = function () {
 
-                var frameBox = $('#frameBox');
+                scope.showFramePart = false;
 
-                $('#frameBox').css("height", "auto");
-
-                $(".framePart").hide(500);
-
-                scope.image = attr.image;
-                scope.id = attr.id;
                 scope.pieceName = attr.piecename;
-                scope.frameStyle = $location.search().frameStyle ? $location.search().frameStyle : attr.framestyle;
+
+                scope.frameStyle = $location.search()["frame" + scope.increm] ?
+                    $location.search()["frame" + scope.increm] : $rootScope['frame' + scope.increm] ?
+                    $rootScope['frame' + scope.increm] : attr.framestyle;
+
+
                 scope.dim = attr.dim;
+                
 
                 var splitDelimiters = ["X", "x"];
 
@@ -109,58 +102,46 @@
 
                 });
 
-                var piece = $('#theImage');
+                var piece = $($(element).children()[1]);
 
-                preloadimages([scope.image]).done(function (images) {
-
-                    setTimeout(function () {
-
-                        buildFraming();
-
-                    }, 300);
-
-                });
+                preloadimages([scope.image]).done(function (images) { buildFraming();});
 
                 function buildFraming() {
 
-                    scope.imageCurrentWidth = piece.offsetParent().width();
-
-                    scope.imageCurrentHeight = piece.offsetParent().height();
-
-                    var winWidth = $(window).width();
+                    var winWidth = window.innerWidth;
 
                     var frameWidth, frameLeft;
 
-                    var winWidth = $(window).width();
+                    var winWidth = window.innerWidth;
 
                     if (prodDim.height > prodDim.width) {
 
                         framePercent.height = (prodDim.height <= 20) ? (framePercent.height - framePercent.height / 3) : framePercent.height;
 
-                        frameWidth = (framePercent.height * frameBox.height()) / 100;
+                        frameWidth = (framePercent.height * element.height()) / 100;
 
                     } else {
 
                         framePercent.width = (prodDim.width <= 20) ? (framePercent.width - framePercent.width / 3) : framePercent.width;
 
-                        frameWidth = (framePercent.width * frameBox.width()) / 100;
+                        frameWidth = (framePercent.width * element.width()) / 100;
 
                     };
 
+                    scope.imageCurrentWidth = piece.offsetParent().width();
 
+                    scope.imageCurrentHeight = piece.offsetParent().height();
 
                     scope.frameOffset = frameWidth / 2;
 
-
-
-                    frameBox.height(frameBox.height() + scope.frameOffset);
+                    element.height(piece.height() + scope.frameOffset);
 
                     scope.imageStyle = {
                         position: "relative",
                         top: scope.frameOffset + "px",
                         left: (scope.frameOffset - 15) + "px",
                         height: (piece.height() - scope.frameOffset) + "px",
-                        width: (frameBox.width() + 30) - (frameWidth)
+                        width: (element.width() + 30) - (frameWidth)
                     }
 
                     scope.topStyle = {
@@ -216,21 +197,48 @@
                         width: frameWidth
                     };
 
+                    scope.showFramePart = true;
+
                     scope.$apply();
 
-                    $(".framePart").show(500);
+                }
+
+            }
+
+            attr.$observe('image', function () {
+
+                if (frameIninitalizing) {
+
+                    frameIninitalizing = false;
+
+                } else {
+
+                    FRAME_IT();
 
                 }
-            }
+
+            });
+
+            $rootScope.$watch('frame' + scope.increm, function () {
+
+                FRAME_IT();
+
+            });
+
         };
+
+        return directive;
     }
 
-    function selectIt(framing, $location) {
+    //LETS SELECT THE FRAME
+    var incremSelection = 0;
+    function selectIt($location,$rootScope) {
 
         var directive = {
+            scope:true,
             link: link,
-            restrict: 'E',
-            template: "<div ng-repeat='f in frameSamples' class='col-xs-2 col-sm-3 col-md-3 col-lg-3 frameSelection'>" +
+            restrict: 'A',
+            template: "<div ng-repeat='f in $root.framepieces' class='col-xs-3 col-sm-3 col-md-4 col-lg-3 frameSelection'>" +
                          "<img ng-src='" + framing_url + "small/{{f.packageName}}.png' ng-click='changeFrame(f.packageName);' class='img-responsive frameCorner ' />" +
                       "</div>"
         };
@@ -239,34 +247,20 @@
 
         function link(scope, element, attrs) {
 
-            framing.getFrames().success(function (data) {
+            scope.increm = incremSelection++;
 
-                var pieces = [
-                    'bottom',
-                    'top',
-                    'left',
-                    'right',
-                    'top-right',
-                    'top-left',
-                    'bottom-left',
-                    'bottom-right'
-                ];
+            scope.changeFrame = function (style) {
 
-                scope.frameSamples = data;
+                $location.search('frame' + scope.increm, style);
 
-                scope.changeFrame = function (style) {
+                $rootScope['frame' + scope.increm] = style;
 
-                    $location.search('frameStyle', style);
-
-                    scope.frameStyle = style;
-
-                }
-
-            });
+            }
 
         };
     }
 
+    //LETS GET SOME FRAMES
     function framing($http) {
         return {
             getFrames: function () {
@@ -275,6 +269,7 @@
         };
     }
 
+    //LETS PRELOAD OUR IMAGES FIRST
     function preloadimages(arr) {
 
         var newimages = [], loadedimages = 0
@@ -306,6 +301,42 @@
                 postaction = f || postaction
             }
         }
+    }
+
+    //CLEAR INCREMENTALS ON ROUTE CHANGE
+    function initializing($rootScope, $location, framing) {
+
+        framing.getFrames().success(function (data) {
+
+            angular.forEach(data, function (value, index) {
+
+                var framePieces = ["bottom", "top", "left", "right", "top-right", "top-left", "bottom-left", "bottom-right"];
+
+                angular.forEach(framePieces, function (framepiece, index) {
+
+                    var newFramePieceImage = new Image();
+
+                    newFramePieceImage.src = framing_url + value.packageName + "/" + framepiece + ".png";
+
+                });
+
+                var newFramePiece = new Image();
+
+                newFramePiece.src = framing_url + "Images/Framing/small/" + value.packageName + ".png";
+
+            });
+
+            $rootScope.framepieces = data;
+
+        });
+
+        $rootScope.$on('$routeChangeSuccess', function () {
+            $rootScope.currentRoute = $location.path();
+        });
+
+        $rootScope.$on("$routeChangeStart", function (event, next, current) {
+           incrementFrame = 0; incremSelection = 0;
+        });
     }
 
 })();
