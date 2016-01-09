@@ -1,4 +1,92 @@
+<br />
+<div class="container">
 
+
+    <hr />
+
+    <div class="well row">
+        <div class="col-sm-12">
+            <span><b>Add FrameBox.min.css in between head tag.</b></span>  <pre><code>&lt;link href=&quot;../App/FrameBox/FrameBox.min.css&quot; rel=&quot;stylesheet&quot; /&gt; </code></pre>
+        </div>
+
+        <div class="col-sm-12">
+            <span><b>Add angular core js files and FrameBox.js at end of body tag </b></span>  <pre><code>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../App/FrameBox/FrameBox.js&quot;&gt;&lt;/script&gt; </code></pre>
+        </div>
+
+        <div class="col-sm-12">
+            <span><b>Create your angular module then add 'ngRoute' and 'FrameBox' to your list of included components.  </b></span>
+            <pre><code>&lt;script&gt;
+      var app = angular.module(&#39;appTest&#39;, [&#39;ngRoute&#39;, &#39;FrameBox&#39;]);
+&lt;/script&gt;</code></pre>
+        </div>
+
+
+    </div>
+
+
+    <hr />
+    <h2>Directives</h2>
+    <hr />
+    <div class="well row">
+        <div class="col-sm-12">
+            <span><b class="lead">Selector [Select-It]</b>: Provides a box with a select list of frames. Click event will update image framing.</span>
+            <pre><code>&lt;div select-it &gt;&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+    <div class="well row">
+        <div class="col-sm-12">
+            <span><b class="lead">Selector [Frame-It] </b>: Generates the frame around the image. Requires values for 4 directive attributes, dim, image, piecename, and frameStyle.  </span><br/>
+            <b>Attributes</b>:
+            <div class="col-sm-12">
+                <b>-dim</b>: Dimensions in inches. <br />
+                <b>-image</b>: Image URL to be framed. <br />
+                <b>-piecename</b>: Name of piece being framed. This directive will set the title attribute for the image tag equal to the provided value. <br/>
+                <b>-frameStyle</b>: Identifier for type of frame style. Styles listed below.... <br /><br />
+                <i style="color:yellow">                    Package_2514,
+                    Package_2515,
+                    Package_2516,
+                    Package_2517,
+                    Package_2519,
+                    Package_2525,
+                    Package_2544,
+                    Package_2533,
+                    Package_2552,
+                    Package_2554,
+                    Package_2559,
+                    Package_2566,
+                    Package_2567,
+                    Package_2569,
+                    Package_2571</i>
+            </div>
+  <div class="clearfix"
+></div>           
+ <br/>            
+            <pre><code>&lt;frame-it dim=&quot;15x30&quot; image=&quot;http://wylandflorida.com/Images/RobKaz/26/thumbsXL/thumb_KnightsofRen15x30[1].jpg&quot; piecename=&quot;Knights of Ren&quot; framestyle=&quot;Package_2567&quot; id=&quot;1&quot;&gt;&lt;/frame-it&gt;</code></pre>
+        </div>
+    </div>
+    <div class="bs-docs-section">
+        <h2 id="template" class="page-header">
+            <a style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;" class="anchorjs-link " href="#template" aria-label="Anchor link for: template" data-anchorjs-icon=""></a>Basic template
+        </h2>
+        <p class="lead">Start with the basic FrameBox template below. Requirements are highlighted in <b style="color:red;">RED</b> and directives hightlighted in <b style="color:blue;">BLUE</b></p>
+
+
+        <pre style="overflow-x:scroll;overflow:hidden;">
+        <code data-lang="html" style="">
+                  &lt;!DOCTYPE html&gt;
+&lt;html <i style="color:red;">ng-app=&quot;appTest&quot;</i> lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;FrameBox.js Demo&lt;/title&gt;
+    &lt;!--TWITTER BOOTSTRAP CSS: OPTIONAL--&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css&quot; integrity=&quot;sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css&quot; integrity=&quot;sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;!--FRAMEBOX CSS: REQUIRED--&gt;
+    <i style="color:red;">&lt;link href=&quot;FrameBox/FrameBox.css&quot; rel=&quot;stylesheet&quot; /&gt;</i>
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
         &lt;h1&gt;FrameBox.js Demo&lt;/h1&gt;
         &lt;hr /&gt;
         &lt;div class=&quot;row&quot;&gt;
@@ -49,3 +137,11 @@
         //Create App and add FrameBox to module array
         var app = angular.module(&#39;appTest&#39;, [&#39;ngRoute&#39;, &#39;FrameBox&#39;]);
     &lt;/script&gt;</i>
+&lt;/body&gt;
+&lt;/html&gt;
+      </code>
+</pre>
+
+    </div>
+
+</div>
