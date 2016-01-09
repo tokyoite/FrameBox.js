@@ -44,6 +44,8 @@
 
         function link(scope, element, attr) {
 
+            var frameIninitalizing = true;
+
             scope.image =  attr.image;
 
             scope.increm = incrementFrame++;
