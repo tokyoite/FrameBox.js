@@ -1,5 +1,5 @@
 /*!
-* Framify.css 1.0 by Octavio Gomez Jr.
+* Framify.css by Octavio Gomez Jr.
 * Copyright 2015 TekAgeSolutions.com.
 */
 
@@ -73,7 +73,7 @@ padding:10px;
 }
 
 .framePart{
-    display:none;
+    display:block;
 }
 
 .bottom,.top,.left,.right{
