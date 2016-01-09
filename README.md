@@ -63,7 +63,7 @@
   <div class="clearfix"
 ></div>           
  <br/>            
-            <pre><code>&lt;div frame-it
+                     <pre><code>&lt;div frame-it
                              dim=&quot;25x40&quot;
                              image=&quot;http://wylandflorida.com/Images/RobKaz/26/thumbsXL/thumb_Kaz Lifting the Xwing.jpg&quot;
                              piecename=&quot;Lifting the X-Wing&quot;
@@ -103,7 +103,7 @@
             &lt;div class=&quot;well col-lg-8 col-md-9 col-sm-12 col-xs-12&quot;&gt;
                 &lt;div class=&quot;col-sm-12&quot;&gt;
                     &lt;!--IMAGE BEING FRAMED--&gt;
-<i style="color:blue;">&lt;div  frame-it
+                     <i style="color:blue;">&lt;div  frame-it
                           dim=&quot;15x30&quot;
                           image=&quot;http://wylandflorida.com/Images/RobKaz/26/thumbsXL/thumb_KnightsofRen15x30[1].jpg&quot;
                           piecename=&quot;Knights of Ren&quot;
@@ -114,7 +114,7 @@
             &lt;div class=&quot;well col-lg-8 col-md-9 col-sm-12 col-xs-12&quot;&gt;
                 &lt;div class=&quot;col-sm-12&quot;&gt;
                     &lt;!--IMAGE BEING FRAMED--&gt;
-<i style="color:blue;">&lt;div frame-it
+                     <i style="color:blue;">&lt;div frame-it
                          dim=&quot;25x40&quot;
                          image=&quot;http://wylandflorida.com/Images/RobKaz/26/thumbsXL/thumb_Kaz Lifting the Xwing.jpg&quot;
                          piecename=&quot;Lifting the X-Wing&quot;
