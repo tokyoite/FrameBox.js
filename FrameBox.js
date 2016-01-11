@@ -25,7 +25,13 @@
     function frameIt($window, $route, $rootScope, $location, $http) {
 
         var directive = {
-            scope: true,
+            scope: {
+                image: '@',
+                dim: '@',
+                piecename: '@',
+                framestyle: '@'
+            },
+            repalce:true,
             link: link,
             restrict: 'A',
             template: "<span style='display:{{showFramePart ? \"block\":\"none\"}}'>" +
@@ -98,11 +104,7 @@
                     width: "100%",
                 };
 
-                angular.element($window).bind('orientationchange', function () {
-
-                    $route.reload();
-
-                });
+ 
 
                 var piece = $($(element).children()[1]);
 
@@ -207,8 +209,11 @@
 
             }
 
-            attr.$observe('image', function () {
+            scope.$watch(function () {
 
+                return [attr.image, attr.dim, attr.piecename];
+
+            }, function () {
                 if (frameIninitalizing) {
 
                     frameIninitalizing = false;
@@ -219,9 +224,18 @@
 
                 }
 
-            });
+            }, true);
+
+
+
 
             $rootScope.$watch('frame' + scope.increm, function () {
+
+                FRAME_IT();
+
+            });
+
+            angular.element($window).bind('orientationchange', function () {
 
                 FRAME_IT();
 
