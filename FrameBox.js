@@ -31,7 +31,7 @@
                 piecename: '@',
                 framestyle: '@'
             },
-            repalce:true,
+            repalce: true,
             link: link,
             restrict: 'A',
             template: "<span style='display:{{showFramePart ? \"block\":\"none\"}}'>" +
@@ -52,20 +52,17 @@
 
             var frameIninitalizing = true;
 
-            scope.image =  attr.image;
+            scope.image = attr.image;
 
             scope.increm = incrementFrame++;
 
             if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
-
+                angular.element($window).bind('orientationchange', function () {
+                    $window.location.reload();
+                });
             } else {
-                var windowChangeTimer;
-                var windowChangeInterval = 1000;
                 window.onresize = function (event) {
-                    clearTimeout(windowChangeTimer);
-                    windowChangeTimer = setTimeout(function () {
-                        $route.reload();
-                    }, windowChangeInterval);
+                    $route.reload();
                 };
             };
 
@@ -79,9 +76,7 @@
                     $location.search()["frame" + scope.increm] : $rootScope['frame' + scope.increm] ?
                     $rootScope['frame' + scope.increm] : attr.framestyle;
 
-
                 scope.dim = attr.dim;
-                
 
                 var splitDelimiters = ["X", "x"];
 
@@ -104,11 +99,9 @@
                     width: "100%",
                 };
 
- 
-
                 var piece = $($(element).children()[1]);
 
-                preloadimages([scope.image]).done(function (images) { buildFraming();});
+                preloadimages([scope.image]).done(function (images) { buildFraming(); });
 
                 function buildFraming() {
 
@@ -215,27 +208,14 @@
 
             }, function () {
                 if (frameIninitalizing) {
-
                     frameIninitalizing = false;
-
                 } else {
-
                     FRAME_IT();
-
                 }
 
             }, true);
 
-
-
-
             $rootScope.$watch('frame' + scope.increm, function () {
-
-                FRAME_IT();
-
-            });
-
-            angular.element($window).bind('orientationchange', function () {
 
                 FRAME_IT();
 
@@ -248,10 +228,10 @@
 
     //LETS SELECT THE FRAME
     var incremSelection = 0;
-    function selectIt($location,$rootScope) {
+    function selectIt($location, $rootScope) {
 
         var directive = {
-            scope:true,
+            scope: true,
             link: link,
             restrict: 'A',
             template: "<div ng-repeat='f in $root.framepieces' class='col-xs-3 col-sm-3 col-md-4 col-lg-3 frameSelection'>" +
@@ -351,7 +331,7 @@
         });
 
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
-           incrementFrame = 0; incremSelection = 0;
+            incrementFrame = 0; incremSelection = 0;
         });
     }
 
