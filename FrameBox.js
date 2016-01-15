@@ -76,24 +76,7 @@
                     $location.search()["frame" + scope.increm] : $rootScope['frame' + scope.increm] ?
                     $rootScope['frame' + scope.increm] : attr.framestyle;
 
-                scope.dim = attr.dim;
-
-                var splitDelimiters = ["X", "x"];
-
-                var prodDim = scope.dim.toString().trim();
-
-                var dimArray = prodDim.split(/x|X/);
-
-                var prodDim = {
-                    height: dimArray[0],
-                    width: dimArray[1],
-                    outer: 7
-                };
-
-                var framePercent = {
-                    height: (prodDim.outer / prodDim.height) * 100,
-                    width: (prodDim.outer / prodDim.width) * 100,
-                };
+                scope.dim = "25x25";
 
                 scope.imageStyle = {
                     width: "100%",
@@ -101,33 +84,50 @@
 
                 var piece = $($(element).children()[1]);
 
-                preloadimages([scope.image]).done(function (images) { buildFraming(); });
+                preloadimages([scope.image]).done(function (images) {
+
+                    buildFraming();
+                });
 
                 function buildFraming() {
 
-                    var winWidth = window.innerWidth;
+                    element.height("auto");
 
-                    var frameWidth, frameLeft;
+                    var splitDelimiters = ["X", "x"];
 
-                    var winWidth = window.innerWidth;
+                    var prodDim = scope.dim.toString().trim();
 
-                    if (prodDim.height > prodDim.width) {
+                    var dimArray = prodDim.split(/x|X/);
 
-                        framePercent.height = (prodDim.height <= 20) ? (framePercent.height - framePercent.height / 3) : framePercent.height;
-
-                        frameWidth = (framePercent.height * element.height()) / 100;
-
-                    } else {
-
-                        framePercent.width = (prodDim.width <= 20) ? (framePercent.width - framePercent.width / 3) : framePercent.width;
-
-                        frameWidth = (framePercent.width * element.width()) / 100;
-
+                    var prodDim = {
+                        height: parseInt(dimArray[0]),
+                        width: parseInt(dimArray[1]),
+                        outer: 7
                     };
 
-                    scope.imageCurrentWidth = piece.offsetParent().width();
+                    var framePercent = {
+                        height: (piece.height() / prodDim.height),
+                        width: (piece.width() / prodDim.width),
+                    };
 
-                    scope.imageCurrentHeight = piece.offsetParent().height();
+                    var winWidth = window.innerWidth;
+
+                    var frameWidth;
+
+                    if (prodDim.height < prodDim.width) {
+
+                        if (prodDim.height > 40) {
+                            frameWidth = ((prodDim.height / piece.height()) * 100) * prodDim.outer;
+                        } else {
+                            frameWidth = (framePercent.height * prodDim.outer);
+                        }
+                    } else {
+                        if (prodDim.width > 40) {
+                            frameWidth = ((prodDim.width / piece.width()) * 100) * prodDim.outer;
+                        } else {
+                            frameWidth = (framePercent.width * prodDim.outer);
+                        }
+                    }
 
                     scope.frameOffset = frameWidth / 2;
 
