@@ -6,7 +6,7 @@
 
     <div class="well row">
         <div class="col-sm-12">
-            <span><b>Add FrameBox.min.css in between head tag.</b></span>  <pre><code>&lt;link href=&quot;../App/FrameBox/FrameBox.css&quot; rel=&quot;stylesheet&quot; /&gt; </code></pre>
+            <span><b>Add FrameBox.css in between head tag.</b></span>  <pre><code>&lt;link href=&quot;../App/FrameBox/FrameBox.css&quot; rel=&quot;stylesheet&quot; /&gt; </code></pre>
         </div>
 
         <div class="col-sm-12">
@@ -37,10 +37,9 @@
     </div>
     <div class="well row">
         <div class="col-sm-12">
-            <span><b class="lead">Selector [Frame-It] </b>: Generates the frame around the image. Requires values for 4 directive attributes, dim, image, piecename, and frameStyle.  </span><br/>
+            <span><b class="lead">Selector [Frame-It] </b>: Generates the frame around the image. Requires values for 4 directive attributes, image, piecename, and frameStyle.  </span><br/>
             <b>Attributes</b>:
             <div class="col-sm-12">
-                <b>-dim</b>: Dimensions in inches. <br />
                 <b>-image</b>: Image URL to be framed. <br />
                 <b>-piecename</b>: Name of piece being framed. This directive will set the title attribute for the image tag equal to the provided value. <br/>
                 <b>-frameStyle</b>: Identifier for type of frame style. Styles listed below.... <br /><br />
@@ -64,7 +63,6 @@
 ></div>           
  <br/>            
 <pre><code>&lt;div frame-it
-    dim=&quot;25x40&quot;
     image=&quot;http://wylandflorida.com/Images/RobKaz/26/thumbsXL/thumb_Kaz Lifting the Xwing.jpg&quot;
     piecename=&quot;Lifting the X-Wing&quot;
     framestyle=&quot;Package_2567&quot;&gt;
@@ -104,7 +102,6 @@
                 &lt;div class=&quot;col-sm-12&quot;&gt;
                     &lt;!--IMAGE BEING FRAMED--&gt;
                      <i style="color:blue;">&lt;div  frame-it
-                          dim=&quot;15x30&quot;
                           image=&quot;http://wylandflorida.com/Images/RobKaz/26/thumbsXL/thumb_KnightsofRen15x30[1].jpg&quot;
                           piecename=&quot;Knights of Ren&quot;
                           framestyle=&quot;Package_2567&quot;&gt;
@@ -115,7 +112,6 @@
                 &lt;div class=&quot;col-sm-12&quot;&gt;
                     &lt;!--IMAGE BEING FRAMED--&gt;
                      <i style="color:blue;">&lt;div frame-it
-                         dim=&quot;25x40&quot;
                          image=&quot;http://wylandflorida.com/Images/RobKaz/26/thumbsXL/thumb_Kaz Lifting the Xwing.jpg&quot;
                          piecename=&quot;Lifting the X-Wing&quot;
                          framestyle=&quot;Package_2567&quot;&gt;
